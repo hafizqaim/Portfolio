@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hafiz Qaim — AI / ML Engineer</title>
+<meta name="description" content="Hafiz Qaim — AI/ML Engineer specialising in RAG systems, vision-language models, and AI agents. Portfolio of medical-AI and automation work." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0A0E17; --bg-2:#0E1320; --bg-3:#131A29;
+  --line:#1E2636; --line-bright:#2B3650;
+  --ink:#E8EBF2; --muted:#8B94A8; --faint:#586176;
+  --teal:#46E0C8; --teal-soft:rgba(70,224,200,.12); --teal-line:rgba(70,224,200,.35);
+  --amber:#F4B45C;
+  --r:14px;
+  --maxw:1180px;
+  --disp:"Bricolage Grotesque",sans-serif;
+  --body:"Inter",sans-serif;
+  --mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--body);
+  line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 80% -5%, rgba(70,224,200,.07), transparent 60%),
+    radial-gradient(700px 500px at 5% 110%, rgba(244,180,92,.05), transparent 60%);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--teal);color:#04110E}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.mono{font-family:var(--mono);letter-spacing:.04em}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal);display:inline-flex;align-items:center;gap:9px;
+}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--teal-line)}
+
+/* ---------- NAV ---------- */
+header.nav{
+  position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(10,14,23,.72);border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:-.01em}
+.brand .mark{
+  width:30px;height:30px;border:1px solid var(--teal-line);border-radius:7px;position:relative;flex:none;
+  background:radial-gradient(circle at 50% 50%,rgba(70,224,200,.18),transparent 70%);
+}
+.brand .mark::before,.brand .mark::after{content:"";position:absolute;background:var(--teal);opacity:.8}
+.brand .mark::before{left:50%;top:5px;bottom:5px;width:1px;transform:translateX(-.5px)}
+.brand .mark::after{top:50%;left:5px;right:5px;height:1px;transform:translateY(-.5px)}
+.brand small{display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-top:-3px}
+nav.links{display:flex;gap:4px;align-items:center}
+nav.links a{
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);
+  padding:8px 13px;border-radius:8px;transition:.18s;text-transform:uppercase;
+}
+nav.links a:hover{color:var(--ink);background:var(--bg-3)}
+nav.links a.active{color:var(--teal);background:var(--teal-soft)}
+.nav-cta{border:1px solid var(--line-bright)!important;color:var(--ink)!important;margin-left:6px}
+.nav-cta:hover{border-color:var(--teal-line)!important}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 11px;color:var(--ink);cursor:pointer;font-family:var(--mono);font-size:12px}
+
+/* ---------- PAGE SYSTEM ---------- */
+.page{display:none;animation:fade .5s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+section{padding:84px 0}
+.sec-head{margin-bottom:46px;max-width:680px}
+.sec-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(28px,4.5vw,44px);letter-spacing:-.02em;line-height:1.05;margin:14px 0 14px}
+.sec-head p{color:var(--muted);font-size:16px}
+
+/* ---------- HERO ---------- */
+.hero{padding:70px 0 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1.0;letter-spacing:-.03em;margin:20px 0 22px}
+.hero h1 .glow{color:var(--teal)}
+.hero .lede{font-size:17.5px;color:var(--muted);max-width:30em;margin-bottom:30px}
+.hero .lede b{color:var(--ink);font-weight:600}
+.btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:34px}
+.btn{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  border:1px solid transparent;transition:.2s;
+}
+.btn.primary{background:var(--teal);color:#04110E;font-weight:700}
+.btn.primary:hover{box-shadow:0 0 0 4px var(--teal-soft);transform:translateY(-2px)}
+.btn.ghost{border-color:var(--line-bright);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--teal-line);color:var(--teal)}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+.hero-stats .stat .n{font-family:var(--disp);font-weight:700;font-size:25px;color:var(--ink)}
+.hero-stats .stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:2px}
+
+/* ---------- SIGNATURE: DIAGNOSTIC VIEWPORT ---------- */
+.viewport{
+  position:relative;aspect-ratio:1/1;border:1px solid var(--line-bright);border-radius:18px;
+  background:radial-gradient(circle at 50% 45%,#101826,#070B12 72%);overflow:hidden;
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.9),inset 0 0 60px rgba(0,0,0,.5);
+}
+.viewport .grid{position:absolute;inset:0;background-image:
+  linear-gradient(var(--line) 1px,transparent 1px),
+  linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:34px 34px;opacity:.4;mask:radial-gradient(circle at 50% 45%,#000 55%,transparent 80%)}
+.viewport .scan-obj{
+  position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:58%;height:58%;border-radius:50%;
+  background:
+    radial-gradient(circle at 42% 38%,rgba(70,224,200,.28),transparent 45%),
+    radial-gradient(circle at 62% 64%,rgba(244,180,92,.16),transparent 42%),
+    radial-gradient(circle at 50% 50%,rgba(120,150,200,.12),transparent 70%),
+    conic-gradient(from 210deg,rgba(255,255,255,.04),rgba(70,224,200,.06),rgba(255,255,255,.02),rgba(70,224,200,.05));
+  filter:blur(.4px);box-shadow:inset 0 0 50px rgba(0,0,0,.6);
+  animation:pulse 6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.85;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.03)}}
+.viewport .cross-v,.viewport .cross-h{position:absolute;background:var(--teal-line)}
+.viewport .cross-v{left:50%;top:0;bottom:0;width:1px}
+.viewport .cross-h{top:45%;left:0;right:0;height:1px}
+.viewport .scanline{
+  position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--teal),transparent);
+  box-shadow:0 0 14px var(--teal);animation:sweep 4.2s linear infinite;opacity:.8;
+}
+@keyframes sweep{0%{top:6%}50%{top:90%}100%{top:6%}}
+.viewport .tick{position:absolute;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--teal);opacity:.75}
+.viewport .t1{top:14px;left:16px}
+.viewport .t2{top:14px;right:16px;text-align:right}
+.viewport .t3{bottom:14px;left:16px}
+.viewport .t4{bottom:14px;right:16px;text-align:right;color:var(--amber)}
+.viewport .corner{position:absolute;width:16px;height:16px;border:1.5px solid var(--teal-line)}
+.viewport .c1{top:10px;left:10px;border-right:0;border-bottom:0}
+.viewport .c2{top:10px;right:10px;border-left:0;border-bottom:0}
+.viewport .c3{bottom:10px;left:10px;border-right:0;border-top:0}
+.viewport .c4{bottom:10px;right:10px;border-left:0;border-top:0}
+
+/* ---------- FOCUS STRIP ---------- */
+.focus-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:14px}
+.focus-strip div{padding:22px 20px;border-right:1px solid var(--line)}
+.focus-strip div:last-child{border-right:0}
+.focus-strip .fk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase}
+.focus-strip .fv{font-family:var(--disp);font-weight:600;font-size:16px;margin-top:6px}
+.focus-strip .fd{font-size:13px;color:var(--muted);margin-top:5px}
+
+/* ---------- HOME FEATURED ---------- */
+.home-feature{margin-top:30px}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.mini-card{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--bg-2);transition:.2s;cursor:pointer}
+.mini-card:hover{border-color:var(--teal-line);transform:translateY(-3px)}
+.mini-card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--amber);text-transform:uppercase}
+.mini-card h3{font-family:var(--disp);font-weight:700;font-size:21px;margin:10px 0 8px;letter-spacing:-.01em}
+.mini-card p{font-size:14px;color:var(--muted)}
+.mini-card .arrow{font-family:var(--mono);font-size:12px;color:var(--teal);margin-top:14px;display:inline-block}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:start}
+.bio p{color:var(--muted);font-size:16px;margin-bottom:16px}
+.bio p b{color:var(--ink);font-weight:600}
+.panel{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);padding:26px}
+.panel h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--faint);font-family:var(--mono);font-size:12px}
+.kv .v{color:var(--ink);text-align:right;font-weight:500}
+
+.timeline{margin-top:54px}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:26px;padding:24px 0;border-top:1px solid var(--line)}
+.tl-item .when{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.04em}
+.tl-item h4{font-family:var(--disp);font-weight:700;font-size:19px;margin-bottom:4px}
+.tl-item .org{font-family:var(--mono);font-size:12px;color:var(--teal);margin-bottom:10px}
+.tl-item p{color:var(--muted);font-size:14.5px}
+
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:50px}
+.skills span{font-family:var(--mono);font-size:12px;padding:7px 14px;border:1px solid var(--line);border-radius:99px;color:var(--muted);transition:.2s}
+.skills span:hover{border-color:var(--teal-line);color:var(--teal)}
+
+/* ---------- SERVICES ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);padding:30px;position:relative;overflow:hidden;transition:.22s}
+.svc:hover{border-color:var(--teal-line)}
+.svc:hover::after{opacity:1}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 100% 0%,var(--teal-soft),transparent 70%);opacity:0;transition:.3s;pointer-events:none}
+.svc .num{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.1em}
+.svc h3{font-family:var(--disp);font-weight:700;font-size:22px;margin:14px 0 12px;letter-spacing:-.01em}
+.svc p{color:var(--muted);font-size:15px;margin-bottom:16px}
+.svc ul{list-style:none}
+.svc li{font-size:13.5px;color:var(--muted);padding-left:20px;position:relative;margin-bottom:7px}
+.svc li::before{content:"›";position:absolute;left:4px;color:var(--teal);font-family:var(--mono)}
+
+/* ---------- PORTFOLIO ---------- */
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:34px}
+.filters button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;transition:.18s;
+}
+.filters button:hover{color:var(--ink)}
+.filters button.active{background:var(--teal);color:#04110E;border-color:var(--teal);font-weight:700}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.proj:hover{border-color:var(--teal-line);transform:translateY(-4px)}
+.proj .shot{
+  position:relative;aspect-ratio:16/10;background:var(--bg-3);border-bottom:1px solid var(--line);overflow:hidden;
+}
+.proj .shot img{width:100%;height:100%;object-fit:cover}
+.proj .placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:26px 26px;background-color:var(--bg-3);
+}
+.proj .placeholder .ph-ico{width:42px;height:42px;border:1.5px solid var(--teal-line);border-radius:8px;position:relative;opacity:.7}
+.proj .placeholder .ph-ico::before,.proj .placeholder .ph-ico::after{content:"";position:absolute;background:var(--teal-line)}
+.proj .placeholder .ph-ico::before{left:50%;top:8px;bottom:8px;width:1px}
+.proj .placeholder .ph-ico::after{top:50%;left:8px;right:8px;height:1px}
+.proj .placeholder span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase}
+.proj .pid{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--teal);background:rgba(7,11,18,.8);padding:4px 9px;border-radius:6px;border:1px solid var(--teal-line)}
+.proj .body{padding:24px;flex:1;display:flex;flex-direction:column}
+.proj .cat{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.proj h3{font-family:var(--disp);font-weight:700;font-size:22px;margin:9px 0 10px;letter-spacing:-.01em}
+.proj p{font-size:14.5px;color:var(--muted);margin-bottom:16px;flex:1}
+.proj .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.proj .stack b{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:4px 9px;border-radius:6px}
+.proj .links{display:flex;gap:8px;flex-wrap:wrap}
+.proj .links a{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:8px 13px;border:1px solid var(--line-bright);border-radius:8px;transition:.18s;color:var(--ink)}
+.proj .links a:hover{border-color:var(--teal-line);color:var(--teal)}
+.proj .links a.muted{color:var(--faint);border-style:dashed;cursor:default}
+
+/* ---------- CONTACT ---------- */
+.contact-card{border:1px solid var(--line);border-radius:18px;background:var(--bg-2);padding:54px;text-align:center;max-width:760px;margin:0 auto;position:relative;overflow:hidden}
+.contact-card::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 260px at 50% 0%,var(--teal-soft),transparent 70%);pointer-events:none}
+.contact-card h2{font-family:var(--disp);font-weight:800;font-size:clamp(30px,5vw,46px);letter-spacing:-.02em;margin:16px 0 14px;line-height:1.05}
+.contact-card p{color:var(--muted);font-size:16px;max-width:42em;margin:0 auto 30px}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.contact-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;padding:13px 20px;border:1px solid var(--line-bright);border-radius:10px;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.contact-links a:hover{border-color:var(--teal-line);color:var(--teal);transform:translateY(-2px)}
+.contact-links a.edit{color:var(--faint);border-style:dashed}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:34px 0;margin-top:30px}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.foot-in p{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.04em}
+.foot-in .status{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .viewport{max-width:420px;margin:0 auto}
+  .about-grid{grid-template-columns:1fr;gap:30px}
+  .svc-grid,.proj-grid,.mini-grid{grid-template-columns:1fr}
+  .focus-strip{grid-template-columns:repeat(2,1fr)}
+  .focus-strip div:nth-child(2){border-right:0}
+  .focus-strip div:nth-child(1),.focus-strip div:nth-child(2){border-bottom:1px solid var(--line)}
+  .tl-item{grid-template-columns:1fr;gap:8px}
+  nav.links{display:none}
+  nav.links.open{display:flex;position:absolute;top:62px;right:14px;left:14px;flex-direction:column;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:10px}
+  .burger{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a href="#home" class="brand" data-link>
+      <span class="mark"></span>
+      <span>Hafiz Qaim<small>AI / ML Engineer</small></span>
+    </a>
+    <nav class="links" id="nav">
+      <a href="#home" data-link>Home</a>
+      <a href="#about" data-link>About</a>
+      <a href="#services" data-link>Services</a>
+      <a href="#portfolio" data-link>Portfolio</a>
+      <a href="#contact" data-link class="nav-cta">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu">MENU</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= HOME ================= -->
+<div class="page" id="home">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Islamabad · Pakistan / Remote — Global</span>
+      <h1>I build <span class="glow">AI systems</span> that read, reason, and act.</h1>
+      <p class="lede">AI/ML Engineer focused on <b>retrieval-augmented generation</b>, <b>vision-language models</b>, and <b>autonomous agents</b> — from a 3D model that drafts MRI reports to multi-tenant healthcare APIs and automation pipelines.</p>
+      <div class="btn-row">
+        <a href="#portfolio" data-link class="btn primary">View the work →</a>
+        <a href="#contact" data-link class="btn ghost">Get in touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="n">Top of ~800</div><div class="l">NIC Faisalabad incubation</div></div>
+        <div class="stat"><div class="n">FAST-NUCES</div><div class="l">AI / ML Graduate</div></div>
+        <div class="stat"><div class="n">RAG · VLM · Agents</div><div class="l">Core focus areas</div></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE VIEWPORT -->
+    <div class="viewport" aria-hidden="true">
+      <div class="grid"></div>
+      <div class="scan-obj"></div>
+      <div class="cross-v"></div><div class="cross-h"></div>
+      <div class="scanline"></div>
+      <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+      <div class="tick t1">SEQ // 3D-VLM<br>MODEL: PAB-MRI</div>
+      <div class="tick t2">SLICE 064 / 128<br>AXIAL</div>
+      <div class="tick t3">RAG: ACTIVE<br>EMBED: ✓</div>
+      <div class="tick t4">STATUS: GENERATING<br>REPORT ▸</div>
+    </div>
+  </section>
+
+  <section style="padding-top:30px">
+    <div class="focus-strip">
+      <div><div class="fk">01 — Retrieval</div><div class="fv">RAG & Vector DBs</div><div class="fd">Grounded, citeable answers over private data.</div></div>
+      <div><div class="fk">02 — Vision</div><div class="fv">Multimodal ML</div><div class="fd">3D vision-language for medical imaging.</div></div>
+      <div><div class="fk">03 — Agents</div><div class="fv">AI Automation</div><div class="fd">Human-in-the-loop agentic workflows.</div></div>
+      <div><div class="fk">04 — Systems</div><div class="fv">ML APIs</div><div class="fd">Multi-tenant, production-shaped backends.</div></div>
+    </div>
+  </section>
+
+  <section class="home-feature" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="eyebrow">Selected Work</span>
+      <h2>A few things I've shipped</h2>
+    </div>
+    <div class="mini-grid">
+      <div class="mini-card" data-goto="portfolio">
+        <span class="tag">Medical AI · Flagship</span>
+        <h3>PAB MRI</h3>
+        <p>A 3D vision-language model that reads MRI volumes and drafts radiology reports. Incubated at NIC Faisalabad.</p>
+        <span class="arrow">See in portfolio →</span>
+      </div>
+      <div class="mini-card" data-goto="portfolio">
+        <span class="tag">Healthcare · RAG</span>
+        <h3>Intelligent Clinic System</h3>
+        <p>Multi-tenant healthcare API combining retrieval-augmented generation with anomaly detection.</p>
+        <span class="arrow">See in portfolio →</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="about">
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">About</span>
+      <h2>Engineer at the intersection of ML research and shipping.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="bio">
+        <p>I'm <b>Hafiz Qaim</b>, an AI/ML Engineer and recent <b>FAST-NUCES</b> graduate based in Pakistan. I like the part of this field where research ideas have to survive contact with real systems — where a model isn't done until it's served, evaluated, and useful to someone.</p>
+        <p>My flagship project, <b>PAB MRI</b>, is a 3D vision-language model for automatic MRI report generation. It was selected for incubation at <b>NIC Faisalabad</b> from a pool of roughly 800 applicants. Alongside it, I've built an <b>Intelligent Clinic System</b> — a multi-tenant healthcare API pairing RAG with anomaly detection.</p>
+        <p>I cut my teeth on retrieval and vector databases during an internship at <b>Arbisoft</b>, and I've delivered freelance ML work for clients on Fiverr. Lately I've been deep in <b>agentic automation</b> — building a job-application agent and an end-to-end content pipeline for my AI channel, <b>Bit Biased AI</b>.</p>
+        <p>I'm currently open to <b>Machine Learning / AI Engineer</b> roles — on-site in Islamabad, Rawalpindi, or Lahore, or remote anywhere.</p>
+      </div>
+      <div class="panel">
+        <h4>// Profile</h4>
+        <div class="kv"><span class="k">ROLE</span><span class="v">AI / ML Engineer</span></div>
+        <div class="kv"><span class="k">EDU</span><span class="v">FAST-NUCES · AI/ML</span></div>
+        <div class="kv"><span class="k">BASE</span><span class="v">Islamabad, PK</span></div>
+        <div class="kv"><span class="k">WORK</span><span class="v">On-site / Remote</span></div>
+        <div class="kv"><span class="k">GITHUB</span><span class="v">@hafizqaim</span></div>
+        <div class="kv"><span class="k">STATUS</span><span class="v" style="color:var(--teal)">Open to roles</span></div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">2024 — 2025</div>
+        <div>
+          <h4>PAB MRI — Founder / ML Lead</h4>
+          <div class="org">NIC Faisalabad · Incubated</div>
+          <p>Built a 3D vision-language model for MRI report generation. Selected for startup incubation out of ~800 applicants.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2024</div>
+        <div>
+          <h4>ML Engineer Intern</h4>
+          <div class="org">Arbisoft</div>
+          <p>Worked on retrieval-augmented generation and vector-database systems for production search and Q&A.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="when">Ongoing</div>
+        <div>
+          <h4>Freelance ML / AI Engineer</h4>
+          <div class="org">Fiverr · Independent</div>
+          <p>Delivered RAG systems, automation agents, and ML integrations for international clients.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="when">Ongoing</div>
+        <div>
+          <h4>Creator — Bit Biased AI</h4>
+          <div class="org">YouTube</div>
+          <p>Long-form AI content, backed by an n8n pipeline that turns a topic into a script and SEO article automatically.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:64px;margin-bottom:0">
+      <span class="eyebrow">Toolkit</span>
+    </div>
+    <div class="skills">
+      <span>Python</span><span>PyTorch</span><span>RAG</span><span>Vector DBs</span><span>LangChain</span>
+      <span>Vision-Language Models</span><span>3D Medical Imaging</span><span>Anomaly Detection</span>
+      <span>Ollama / Llama 3.1</span><span>OpenRouter</span><span>FastAPI</span><span>Multi-tenant APIs</span>
+      <span>n8n</span><span>Google Apps Script</span><span>Gemini</span><span>Notion API</span><span>Git</span>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<div class="page" id="services">
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Services</span>
+      <h2>What I can build for you.</h2>
+      <p>Whether you need a one-off proof of concept or a production system, here's where I do my best work.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="num">SVC.01</div>
+        <h3>RAG & Knowledge Systems</h3>
+        <p>Chatbots and search that answer from <em>your</em> data — grounded, citeable, and current.</p>
+        <ul>
+          <li>Document ingestion & chunking pipelines</li>
+          <li>Vector database design & retrieval tuning</li>
+          <li>Evaluation so you can trust the answers</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="num">SVC.02</div>
+        <h3>Vision-Language & Multimodal ML</h3>
+        <p>Models that understand images and text together — including 3D medical imaging.</p>
+        <ul>
+          <li>Image / volume captioning & report generation</li>
+          <li>Fine-tuning multimodal models on domain data</li>
+          <li>Medical & scientific imaging pipelines</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="num">SVC.03</div>
+        <h3>AI Agents & Automation</h3>
+        <p>Workflows that do the repetitive work for you, with a human in the loop where it counts.</p>
+        <ul>
+          <li>Multi-step agents (n8n, custom orchestration)</li>
+          <li>Email / sheets / API ingestion & actions</li>
+          <li>Human-review digests before anything ships</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="num">SVC.04</div>
+        <h3>ML APIs & Backends</h3>
+        <p>The unglamorous-but-essential layer: serving models reliably to real users.</p>
+        <ul>
+          <li>Multi-tenant API architecture</li>
+          <li>Anomaly detection & monitoring</li>
+          <li>FastAPI services around your models</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="num">SVC.05</div>
+        <h3>AI Content Pipelines</h3>
+        <p>Turn one input into many polished outputs — scripts, articles, and more, on autopilot.</p>
+        <ul>
+          <li>Topic → script + SEO article workflows</li>
+          <li>Multi-model routing (research vs. writing)</li>
+          <li>Auto-publishing into Notion & beyond</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="num">SVC.06</div>
+        <h3>Consulting & Prototyping</h3>
+        <p>Not sure if AI fits your problem? Let's scope it, prototype fast, and find out cheaply.</p>
+        <ul>
+          <li>Feasibility & approach review</li>
+          <li>Rapid proof-of-concept builds</li>
+          <li>Free-tier-first, cost-aware stacks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PORTFOLIO ================= -->
+<div class="page" id="portfolio">
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Projects, in detail.</h2>
+      <p>Drop your own screenshots into an <code class="mono" style="color:var(--teal)">/images</code> folder to replace the placeholders — filenames are noted on each card.</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="medical">Medical AI</button>
+      <button data-filter="rag">RAG</button>
+      <button data-filter="agents">Agents</button>
+      <button data-filter="automation">Automation</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <article class="proj" data-tags="medical">
+        <div class="shot">
+          <div class="pid">PRJ.01 // 3D-VLM</div>
+          <img src="images/pab-mri.jpg" alt="PAB MRI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>images/pab-mri.jpg</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Medical AI · Flagship</span>
+          <h3>PAB MRI</h3>
+          <p>A 3D vision-language model that ingests MRI volumes and generates draft radiology reports — bringing vision and language together for medical imaging. Selected for incubation at NIC Faisalabad from ~800 applicants.</p>
+          <div class="stack"><b>PyTorch</b><b>3D Vision</b><b>VLM</b><b>Medical Imaging</b></div>
+          <div class="links"><a href="https://github.com/hafizqaim" target="_blank" rel="noopener">GitHub ↗</a><a class="muted">Demo soon</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-tags="rag agents">
+        <div class="shot">
+          <div class="pid">PRJ.02 // RAG-API</div>
+          <img src="images/clinic-system.jpg" alt="Intelligent Clinic System" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>images/clinic-system.jpg</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Healthcare · RAG</span>
+          <h3>Intelligent Clinic System</h3>
+          <p>A multi-tenant healthcare API that pairs retrieval-augmented generation with anomaly detection — letting clinics query their own records safely while flagging unusual patterns.</p>
+          <div class="stack"><b>FastAPI</b><b>RAG</b><b>Vector DB</b><b>Anomaly Detection</b></div>
+          <div class="links"><a href="https://github.com/hafizqaim" target="_blank" rel="noopener">GitHub ↗</a><a class="muted">Case study soon</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-tags="agents automation">
+        <div class="shot">
+          <div class="pid">PRJ.03 // AGENT</div>
+          <img src="images/job-apply-agent.jpg" alt="Job Apply Agent" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>images/job-apply-agent.jpg</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Agents · Automation</span>
+          <h3>Job-Apply Agent</h3>
+          <p>An end-to-end job-application agent on a free-tier stack: Google Apps Script ingests Gmail & Sheets, a local Llama 3.1 (or Gemini) drafts responses, and a human-in-the-loop digest keeps me in control before anything is submitted.</p>
+          <div class="stack"><b>Apps Script</b><b>Ollama</b><b>Llama 3.1</b><b>Gemini</b></div>
+          <div class="links"><a href="https://github.com/hafizqaim/job-apply-agent" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-tags="automation agents">
+        <div class="shot">
+          <div class="pid">PRJ.04 // PIPELINE</div>
+          <img src="images/bit-biased-pipeline.jpg" alt="Bit Biased AI Pipeline" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>images/bit-biased-pipeline.jpg</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Content · Automation</span>
+          <h3>Bit Biased AI — Content Engine</h3>
+          <p>An n8n pipeline that turns a single topic into a finished video script and an SEO blog article, saved to separate Notion databases — routing research to GPT-4.1-mini and writing to Claude via OpenRouter.</p>
+          <div class="stack"><b>n8n</b><b>Claude</b><b>OpenRouter</b><b>Notion API</b></div>
+          <div class="links"><a class="muted">Private workflow</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-tags="rag">
+        <div class="shot">
+          <div class="pid">PRJ.05 // RETRIEVAL</div>
+          <img src="images/arbisoft-rag.jpg" alt="Arbisoft RAG work" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>images/arbisoft-rag.jpg</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Internship · RAG</span>
+          <h3>Vector-DB Retrieval (Arbisoft)</h3>
+          <p>Production retrieval work during my Arbisoft internship — building and tuning vector-database pipelines for search and question-answering over large document sets.</p>
+          <div class="stack"><b>RAG</b><b>Vector DB</b><b>Embeddings</b><b>Python</b></div>
+          <div class="links"><a class="muted">Internal project</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-tags="medical">
+        <div class="shot">
+          <div class="pid">PRJ.06 // OPEN SLOT</div>
+          <div class="placeholder" style="display:flex"><div class="ph-ico"></div><span>add your next project</span></div>
+        </div>
+        <div class="body">
+          <span class="cat">Your Next Build</span>
+          <h3>Reserved Slot</h3>
+          <p>Duplicate any card above and swap in your details to feature another project here — academic, professional, or freelance.</p>
+          <div class="stack"><b>Edit me</b></div>
+          <div class="links"><a class="muted">—</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="contact">
+  <section>
+    <div class="contact-card">
+      <span class="eyebrow" style="justify-content:center">Let's talk</span>
+      <h2>Have a problem worth<br>pointing a model at?</h2>
+      <p>I'm open to AI/ML Engineer roles and freelance builds. Tell me what you're working on — I usually reply fast.</p>
+      <div class="contact-links">
+        <a href="https://github.com/hafizqaim" target="_blank" rel="noopener">⌥ GitHub</a>
+        <a href="mailto:your.email@example.com" class="edit">✉ Email — edit me</a>
+        <a href="#" class="edit">in LinkedIn — edit me</a>
+        <a href="#" class="edit">▶ YouTube · Bit Biased AI — edit me</a>
+        <a href="#" class="edit">◆ Fiverr — edit me</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <p>© <span id="yr"></span> Hafiz Qaim · AI / ML Engineer</p>
+    <p class="status"><span class="dot"></span> Available for new opportunities</p>
+  </div>
+</footer>
+
+<script>
+const pages = ['home','about','services','portfolio','contact'];
+function route(){
+  let id = (location.hash || '#home').replace('#','');
+  if(!pages.includes(id)) id = 'home';
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===id));
+  document.querySelectorAll('nav.links a[href^="#"]').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href')==='#'+id);
+  });
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+}
+window.addEventListener('hashchange', route);
+window.addEventListener('DOMContentLoaded', ()=>{
+  route();
+  document.getElementById('yr').textContent = new Date().getFullYear();
+});
+// mini-card + cta jumps
+document.querySelectorAll('[data-goto]').forEach(el=>{
+  el.addEventListener('click',()=>{location.hash='#'+el.dataset.goto});
+});
+// burger
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('nav').classList.toggle('open');
+});
+// portfolio filters
+const grid = document.getElementById('projGrid');
+document.getElementById('filters').addEventListener('click',e=>{
+  const btn = e.target.closest('button'); if(!btn) return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  grid.querySelectorAll('.proj').forEach(card=>{
+    const tags = card.dataset.tags || '';
+    card.style.display = (f==='all' || tags.includes(f)) ? 'flex' : 'none';
+  });
+});
+</script>
+</body>
+</html>
