@@ -1,5 +1,6 @@
 import { profile } from '../data/profile'
 import Reveal from './Reveal'
+import ContactForm from './ContactForm'
 import { GitHubIcon, LinkedInIcon, MailIcon, LinkIcon, DownloadIcon } from './icons'
 
 const links = [
@@ -27,6 +28,17 @@ export default function Contact() {
             <p className="mx-auto mb-8 mt-3.5 max-w-[42em] text-[16px] text-muted">
               I'm open to AI/ML Engineer roles and freelance builds. Tell me what you're working on — I usually reply fast.
             </p>
+
+            <div className="mx-auto max-w-[480px]">
+              <ContactForm />
+            </div>
+
+            <div className="my-7 flex items-center gap-3 text-faint">
+              <span className="h-px flex-1 bg-line" />
+              <span className="font-mono text-[11px] uppercase tracking-[0.12em]">or reach me directly</span>
+              <span className="h-px flex-1 bg-line" />
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3">
               {links.map(({ label, href, Icon, ext }) => (
                 <a
