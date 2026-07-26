@@ -57,3 +57,24 @@ export const DownloadIcon = (p) => (
     <path d="M5 21h14" />
   </svg>
 )
+
+export const MenuIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M4 7h16" />
+    <path d="M4 12h16" />
+    <path d="M4 17h16" />
+  </svg>
+)
+
+export const XIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="m6 6 12 12" />
+    <path d="m18 6-12 12" />
+  </svg>
+)
+
+export const SparkIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M12 3 9.6 9.6 3 12l6.6 2.4L12 21l2.4-6.6L21 12l-6.6-2.4L12 3Z" />
+  </svg>
+)

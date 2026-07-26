@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <>
+    <div className="site-shell">
       <Nav />
       <main className="relative z-[1]">
         <Hero />
@@ -20,6 +20,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

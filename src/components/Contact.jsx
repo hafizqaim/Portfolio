@@ -1,7 +1,7 @@
 import { profile } from '../data/profile'
 import Reveal from './Reveal'
 import ContactForm from './ContactForm'
-import { GitHubIcon, LinkedInIcon, MailIcon, LinkIcon, DownloadIcon } from './icons'
+import { DownloadIcon, GitHubIcon, LinkIcon, LinkedInIcon, MailIcon } from './icons'
 
 const links = [
   { label: 'Email', href: `mailto:${profile.links.email}`, Icon: MailIcon },
@@ -13,47 +13,58 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-[1180px] px-7 py-20">
-      <Reveal>
-        <div className="relative mx-auto max-w-[760px] overflow-hidden rounded-[18px] border border-line bg-bg2 p-12 text-center">
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'radial-gradient(500px 260px at 50% 0%, rgba(70,224,200,.12), transparent 70%)' }}
-          />
-          <div className="relative">
-            <span className="eyebrow justify-center">Let's talk</span>
-            <h2 className="mx-auto mt-4 max-w-[14em] font-display text-[clamp(28px,5vw,44px)] font-extrabold leading-[1.05] tracking-[-0.02em]">
-              Have a problem worth pointing a model at?
-            </h2>
-            <p className="mx-auto mb-8 mt-3.5 max-w-[42em] text-[16px] text-muted">
-              I'm open to AI/ML Engineer roles and freelance builds. Tell me what you're working on — I usually reply fast.
-            </p>
+    <section id="contact" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-7">
+        <Reveal>
+          <div className="gradient-border glass grid overflow-hidden rounded-[32px] shadow-[0_50px_120px_-40px_rgba(0,0,0,.8)] lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="relative overflow-hidden border-b border-white/5 p-6 md:p-8 lg:border-b-0 lg:border-r">
+              <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_20%_0%,rgba(124,58,237,.16),transparent_60%),radial-gradient(60%_50%_at_90%_100%,rgba(6,182,212,.1),transparent_60%)]" />
+              <div className="relative">
+                <span className="eyebrow">Let's build</span>
+                <h2 className="mt-5 font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink md:text-5xl">
+                  Have a problem worth <span className="serif-i text-gradient">pointing a model at?</span>
+                </h2>
+                <p className="mt-5 text-base leading-8 text-muted">
+                  I am open to AI/ML Engineer roles and high-signal freelance builds. Send the shape of the problem,
+                  the data you have, and what success should look like.
+                </p>
 
-            <div className="mx-auto max-w-[480px]">
+                <div className="mt-8 grid gap-2.5">
+                  {links.map(({ label, href, Icon, ext }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      {...(ext ? { target: '_blank', rel: 'noopener' } : {})}
+                      className="group flex items-center justify-between rounded-2xl border border-white/5 bg-white/[.03] px-4 py-3 transition hover:border-violet/30 hover:bg-white/[.06]"
+                    >
+                      <span className="inline-flex items-center gap-3 text-sm font-semibold text-ink">
+                        <span className="text-violet transition group-hover:text-cyan">
+                          <Icon width={17} height={17} />
+                        </span>
+                        {label}
+                      </span>
+                      <span className="font-mono text-xs text-faint transition group-hover:text-cyan">open</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 md:p-8">
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <div>
+                  <div className="font-mono text-xs tracking-widest text-violet uppercase">Contact form</div>
+                  <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink">Tell me the brief.</h3>
+                </div>
+                <span className="hidden rounded-full border border-emerald/25 bg-emerald/5 px-3 py-1.5 font-mono text-xs text-emerald sm:inline-flex">
+                  fast reply
+                </span>
+              </div>
               <ContactForm />
             </div>
-
-            <div className="my-7 flex items-center gap-3 text-faint">
-              <span className="h-px flex-1 bg-line" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.12em]">or reach me directly</span>
-              <span className="h-px flex-1 bg-line" />
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {links.map(({ label, href, Icon, ext }) => (
-                <a
-                  key={label}
-                  href={href}
-                  {...(ext ? { target: '_blank', rel: 'noopener' } : {})}
-                  className="inline-flex items-center gap-2 rounded-[10px] border border-line2 px-5 py-3 font-mono text-[12.5px] tracking-[0.05em] transition hover:-translate-y-0.5 hover:border-teal/35 hover:text-teal"
-                >
-                  <Icon width={15} height={15} /> {label}
-                </a>
-              ))}
-            </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   )
 }
