@@ -30,7 +30,8 @@ in `public/images/` and set `image: './images/your-file.png'` on the project.
 See `public/images/README.md`.
 
 ### Resume / CV
-Drop your CV as `public/resume.pdf` — the Resume buttons already point to it.
+Drop your CV in `public/` and point `resumeUrl` in `src/data/profile.js` at it
+(currently `public/Muhammad_Qaim_Ali_Resume.pdf`) — every Resume button reads from there.
 
 ## Deploy (host-agnostic)
 

@@ -32,7 +32,7 @@ export const profile = {
   },
 
   // CV PDF lives in /public. The Resume buttons serve this file.
-  resumeUrl: './Muhammad%20Qaim%20Ali%20Resume.pdf',
+  resumeUrl: './Muhammad_Qaim_Ali_Resume.pdf',
 
   stats: [
     { n: '100+ · 5★', l: 'Fiverr projects delivered' },
